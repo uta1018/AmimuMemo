@@ -1,6 +1,6 @@
 import Konva from "konva";
 import { Shape } from "react-konva";
-import { StitchShapeProps } from "./Stitch.types";
+import { StitchShapeProps } from "../types/Stitch.types";
 
 const drawFunctions = {
   // マジックリング（円）の形

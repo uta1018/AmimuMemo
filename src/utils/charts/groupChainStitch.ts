@@ -1,4 +1,4 @@
-import { GroupedStitch, Stitch } from "../components/Stitch.types";
+import { GroupedStitch, Stitch } from "../../types/Stitch.types";
 
 export const groupChainStitch = (stitches: Stitch[]): GroupedStitch[] => {
   const groupedStitches: GroupedStitch[] = [];

@@ -1,4 +1,4 @@
-import { Stitch } from "../components/Stitch.types";
+import { Stitch } from "../../types/Stitch.types";
 
 export const getRotation = (list: Stitch[]) => {
   //鎖編みの連続をひとまとまりとして要素数を算出

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Stage, Layer } from "react-konva";
 import StitchShape from "./StitchShape";
-import { Stitch } from "./Stitch.types";
-import { processRounds } from "../functions/processRounds";
+import { Stitch } from "../types/Stitch.types";
+import { processRounds } from "../utils/charts/processRounds";
 
 // ハートメモ
 // 1．輪の作り目で編む
@@ -85,35 +85,35 @@ const unprocessedStitches: Stitch[][] = [
 
 const processedStitches = processRounds(unprocessedStitches);
 
-const stitches: Stitch[] = [
-  // マジックリング（○）
-  { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
-  // 鎖編み（○）
-  { type: "chain", x: 0, y: 30 },
-  { type: "chain", x: 0, y: 50 },
-  { type: "chain", x: 0, y: 70 },
-  { type: "chain", x: 0, y: 90 },
-  { type: "chain", x: 0, y: 110 },
-  // 細編み（×）
-  { type: "single", x: 90 / 1.414, y: -90 / 1.414, rotation: -135 },
-  { type: "single", x: -90 / 1.414, y: -90 / 1.414, rotation: 135 },
-  // 増し目
-  { type: "inc", x: 80 / 1.414, y: 80 / 1.414, rotation: -45 },
-  { type: "inc", x: -80 / 1.414, y: 80 / 1.414, rotation: 45 },
-  // 減らし目
-  { type: "dec", x: 80, y: 0, rotation: -90 },
-  { type: "dec", x: -80, y: 0, rotation: 90 },
-  // 長編み（T）
-  { type: "halfDouble", x: 0, y: -30, rotation: 180 },
-  { type: "treble", x: 30 / 1.414, y: -30 / 1.414, rotation: -135 },
-  { type: "treble", x: -30 / 1.414, y: -30 / 1.414, rotation: 135 },
-  { type: "double", x: 30 / 1.414, y: 30 / 1.414, rotation: -45 },
-  { type: "double", x: -30, y: 0, rotation: 90 },
-  { type: "double", x: 30, y: 0, rotation: -90 },
-  { type: "double", x: -30 / 1.414, y: 30 / 1.414, rotation: 45 },
-  // 引き抜き編み（・）
-  { type: "slip", x: 0, y: -160 },
-];
+// const stitches: Stitch[] = [
+//   // マジックリング（○）
+//   { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
+//   // 鎖編み（○）
+//   { type: "chain", x: 0, y: 30 },
+//   { type: "chain", x: 0, y: 50 },
+//   { type: "chain", x: 0, y: 70 },
+//   { type: "chain", x: 0, y: 90 },
+//   { type: "chain", x: 0, y: 110 },
+//   // 細編み（×）
+//   { type: "single", x: 90 / 1.414, y: -90 / 1.414, rotation: -135 },
+//   { type: "single", x: -90 / 1.414, y: -90 / 1.414, rotation: 135 },
+//   // 増し目
+//   { type: "inc", x: 80 / 1.414, y: 80 / 1.414, rotation: -45 },
+//   { type: "inc", x: -80 / 1.414, y: 80 / 1.414, rotation: 45 },
+//   // 減らし目
+//   { type: "dec", x: 80, y: 0, rotation: -90 },
+//   { type: "dec", x: -80, y: 0, rotation: 90 },
+//   // 長編み（T）
+//   { type: "halfDouble", x: 0, y: -30, rotation: 180 },
+//   { type: "treble", x: 30 / 1.414, y: -30 / 1.414, rotation: -135 },
+//   { type: "treble", x: -30 / 1.414, y: -30 / 1.414, rotation: 135 },
+//   { type: "double", x: 30 / 1.414, y: 30 / 1.414, rotation: -45 },
+//   { type: "double", x: -30, y: 0, rotation: 90 },
+//   { type: "double", x: 30, y: 0, rotation: -90 },
+//   { type: "double", x: -30 / 1.414, y: 30 / 1.414, rotation: 45 },
+//   // 引き抜き編み（・）
+//   { type: "slip", x: 0, y: -160 },
+// ];
 
 const CrochetChart = () => {
   const [shapeSelectedState, setShapeSelectedState] = useState({

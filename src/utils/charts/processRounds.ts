@@ -1,4 +1,4 @@
-import { Stitch } from "../components/Stitch.types";
+import { Stitch } from "../../types/Stitch.types";
 import { getRotation } from "./getRotation";
 
 export const processRounds = (rounds: Stitch[][]) => {
