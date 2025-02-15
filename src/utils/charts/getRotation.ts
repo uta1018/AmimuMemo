@@ -1,6 +1,6 @@
-import { Stitch } from "../../types/Stitch.types";
+import { StitchInChart } from "../../types/Stitch.types";
 
-export const getRotation = (list: Stitch[]) => {
+export const getRotation = (list: StitchInChart[]) => {
   //鎖編みの連続をひとまとまりとして要素数を算出
   let isPrevChain = false;
   const chainCount = list.reduce((acc, cur) => {

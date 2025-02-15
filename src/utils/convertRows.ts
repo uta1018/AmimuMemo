@@ -1,15 +1,7 @@
-export interface Stitch {
-  stitchType: string;
-  isCompleted: boolean;
-  comment?: string;
-  markerColor?: string;
-  isMarked: boolean;
-  isInProgress: boolean;
-  isSelected: boolean;
-}
+import { StitchInApp } from "../types/Stitch.types";
 
 export interface Row {
-  stitches: Stitch[];
+  stitches: StitchInApp[];
 }
 
 export interface ConvertedStitch {
@@ -31,7 +23,7 @@ export interface ConvertedRow {
 export function convertRows(rows: Row[]): ConvertedRow[] {
   return rows.map((row) => {
     const convertedStitches: ConvertedStitch[] = [];
-    let currentStitch: Stitch | null = null;
+    let currentStitch: StitchInApp | null = null;
     let count = 0;
     let groupInProgress = false;
     let groupSelected = false;

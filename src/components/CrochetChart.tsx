@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Stage, Layer } from "react-konva";
 import StitchShape from "./StitchShape";
-import { Stitch } from "../types/Stitch.types";
+import { StitchInChart } from "../types/Stitch.types";
 import { processRounds } from "../utils/charts/processRounds";
 
 // ハートメモ
@@ -20,7 +20,7 @@ import { processRounds } from "../utils/charts/processRounds";
 // マーカーを付けた目だけ 長編みを2目 編む（ハートのとんがり部分）
 // 引き抜き編み で2段目を完成させる
 
-// const stitches: Stitch[] = [
+// const stitches: StitchInChart[] = [
 //   // マジックリング（○）
 //   { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
 //   // 鎖編み（○）
@@ -47,7 +47,7 @@ import { processRounds } from "../utils/charts/processRounds";
 //   { type: "slip", x: 0, y: -160 },
 // ];
 
-const unprocessedStitches: Stitch[][] = [
+const unprocessedStitches: StitchInChart[][] = [
   [{ type: "magicRing", index: 0, x: 0, y: 0 }],
   [
     { type: "chain", index: 0 },
@@ -85,7 +85,7 @@ const unprocessedStitches: Stitch[][] = [
 
 const processedStitches = processRounds(unprocessedStitches);
 
-// const stitches: Stitch[] = [
+// const stitches: StitchInChart[] = [
 //   // マジックリング（○）
 //   { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
 //   // 鎖編み（○）
