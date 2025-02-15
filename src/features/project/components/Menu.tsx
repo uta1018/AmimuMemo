@@ -7,6 +7,7 @@ import { IoLanguage } from "react-icons/io5";
 import { CgArrowsExchange } from "react-icons/cg";
 import { SlNote } from "react-icons/sl";
 import { useParams } from "react-router-dom";
+import './Menu.scss';
 
 interface MenuProps {
   isChartVisible: boolean;
@@ -33,59 +34,61 @@ const Menu: React.FC<MenuProps> = ({ isChartVisible, openMemo }) => {
       </div>
 
       {/* オーバーレイ */}
-      {isOpen && <Overlay onClick={closeMenu} />}
+      {isOpen && < Overlay onClick={closeMenu} />}
 
       {/* メニュー */}
       {isOpen && (
-        <div
+        <div className="menu-container"
           style={{
             backgroundColor: "#fff",
             zIndex: 5,
           }}
         >
           <ul>
-            <li>
+            <li className="menu">
               <a href={`/edit-project/${projectId}`}>
-                <p>作品の編集</p>
+                <p className="menu-content">作品の編集</p>
                 <FaPen />
               </a>
             </li>
             {/* データベース書き換え */}
             {isChartVisible ? (
-              <li>
+              <li className="menu">
                 <a href={`/project/${projectId}`}>
-                  <p>編み図の非表示</p>
+                  <p  className="menu-content">編み図の非表示</p>
                   <FaRegEyeSlash />
                 </a>
               </li>
             ) : (
-              <li>
+              <li className="menu">
                 <a href={`/project/${projectId}`}>
-                  <p>編み図の表示</p>
+                  <p className="menu-content">編み図の表示</p>
                   <FaRegEyeSlash />
                 </a>
               </li>
             )}
-            <li>
+            <li className="menu">
               <a href={`/project/${projectId}`}>
-                <p>日↔英の切り替え</p>
+                <p className="menu-content">日↔英の切り替え</p>
                 <IoLanguage />
               </a>
             </li>
-            <li>
+            <li className="menu">
               <a href={`/project/${projectId}`}>
-                <p>カウント 行↔段切り替え</p>
+                <p className="menu-content">カウント 行↔段切り替え</p>
                 <CgArrowsExchange />
               </a>
             </li>
-            <li
+            <li className="menu"
               onClick={() => {
                 closeMenu();
                 openMemo();
               }}
             >
-              <p>作品メモ</p>
-              <SlNote />
+              <a>
+                <p className="menu-content">作品メモ</p>
+                <SlNote />
+              </a>
             </li>
           </ul>
         </div>

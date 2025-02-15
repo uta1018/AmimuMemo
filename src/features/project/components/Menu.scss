@@ -1,0 +1,58 @@
+.menu-container {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    background: white;
+    border-radius: 10px;
+    z-index: 5;
+    padding: 0px;
+    min-width: 0px;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 10px 50px 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  
+    a{
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: #E4A1B6;
+  
+      svg {
+        color: #EECAD5;
+        position: absolute;
+        right: 12px;
+      }
+    }
+  
+    .menu-content {
+        font-family: "Rounded Mplus 1c", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 14px;
+    }
+  }
+  
+  /* 区切り線 */
+  .menu:not(:last-child) {
+    border-bottom: 1px solid #EECAD5;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 4;
+  }
