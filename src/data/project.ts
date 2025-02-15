@@ -12,6 +12,8 @@ interface Row {
   stitches: Stitch[];        // この行の目（Stitch）の配列
 }
 
+export type Language = "en" | "ja";
+
 interface Stitch {
   stitchType: "slip" | "chain" | "single" | "double" | "treble" | string;  // 目の種類
   isCompleted: boolean;      // この目が完了しているか
