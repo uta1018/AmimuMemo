@@ -1,0 +1,43 @@
+// .project-list {
+//     display: flex;
+// }
+
+.logo {
+    display: block;
+    margin: 50px auto 0;
+    width: 112px;
+    height: auto;
+}
+
+.header {
+    position: absolute;
+    top: 93px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 332px;
+    height: 34px;
+    color: #E4A1B6;
+    border-bottom:2px solid #E4A1B6;
+
+    .title {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        font-weight: 800;
+        font-size: 14px;
+    }
+
+    .create-button {
+        position: absolute;
+        top: 9px;
+        right: 14px;
+    }
+}
+
+.project-container {
+    position: absolute;
+    top: 151px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+}
