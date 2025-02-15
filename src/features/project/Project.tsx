@@ -12,7 +12,7 @@ import { rows } from "../../utils/convertRows";
 import { Language } from "../../data/project";
 
 const Project: React.FC = () => {
-  const [isChartVisible, setIsChartVisible] = useState(true);
+  const [isChartVisible, ] = useState(true);
   const [isMemoVisible, setIsMemoVisible] = useState(false);
   const language: Language = "ja";
 

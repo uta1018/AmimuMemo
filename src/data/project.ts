@@ -7,20 +7,20 @@ export interface Project {
   updatedAt: Date;
 }
 
-interface Row {
-  stitches: Stitch[];        // この行の目（Stitch）の配列
-}
+// interface Row {
+//   stitches: Stitch[];        // この行の目（Stitch）の配列
+// }
 
 export type Language = "en" | "ja";
 
-interface Stitch {
-  stitchType: "slip" | "chain" | "single" | "double" | "treble" | string;  // 目の種類
-  isCompleted: boolean;      // この目が完了しているか
-  isMarked: boolean;         // ユーザーがマークしたかどうか
-  comment?: string;             // コメント
-  markerColor?: string;      // メモの色（任意）
-  rowId: number;             // 目が所属する行のID
-}
+// interface Stitch {
+//   stitchType: "slip" | "chain" | "single" | "double" | "treble" | string;  // 目の種類
+//   isCompleted: boolean;      // この目が完了しているか
+//   isMarked: boolean;         // ユーザーがマークしたかどうか
+//   comment?: string;             // コメント
+//   markerColor?: string;      // メモの色（任意）
+//   rowId: number;             // 目が所属する行のID
+// }
 
 export const dummyProjects: Project[] = [
   {

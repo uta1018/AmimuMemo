@@ -3,7 +3,7 @@ import React from "react";
 import { translateStitchType } from "../../../utils/translateStitch";
 import { Language } from "../../../data/project";
 import { ConvertedStitch } from "../../../utils/convertRows";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 interface StitchProps {
   stitch: ConvertedStitch;
@@ -11,12 +11,12 @@ interface StitchProps {
 }
 
 const Stitch: React.FC<StitchProps> = ({ stitch, language }) => {
-  const stitchClass = classNames({
-    stitch: true, // 常に適用されるクラス
-    "in-progress": stitch.isInProgress, // 編み途中の場合
-    selected: stitch.isSelected, // 選択中の場合
-    completed: !stitch.isInProgress && !stitch.isSelected, // 編み終わりの場合
-  });
+  // const stitchClass = classNames({
+  //   stitch: true, // 常に適用されるクラス
+  //   "in-progress": stitch.isInProgress, // 編み途中の場合
+  //   selected: stitch.isSelected, // 選択中の場合
+  //   completed: !stitch.isInProgress && !stitch.isSelected, // 編み終わりの場合
+  // });
 
   return (
     <div>
