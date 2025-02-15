@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import { AiOutlineReload } from "react-icons/ai";
 
+export type FormValues = {
+  title: string;
+  description: string;
+};
+
 const CreateProject: React.FC = () => {
   const navigate = useNavigate();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -15,9 +20,9 @@ const CreateProject: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormValues>();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormValues) => {
     console.log(data);
     // フォームデータの送信や処理をここで行います
     setIsFormSubmitted(true);
