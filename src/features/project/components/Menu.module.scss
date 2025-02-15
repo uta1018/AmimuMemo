@@ -1,0 +1,61 @@
+.menu-button {
+  svg {
+    color: #E4A1B6;
+    width: 20px;
+    height: auto;
+  }
+}
+
+.menu-container {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    background: white;
+    border-radius: 10px;
+    z-index: 5;
+    width: 220px;
+  }
+  
+  .menu-list {
+    li{
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    li:not(:last-child) {
+      border-bottom: 1px solid #EECAD5;
+    }
+
+    a{
+      display: flex;
+      align-items: center;
+      color: #E4A1B6;
+
+      svg {
+        color: #EECAD5;
+        width: 1.2em;
+        height: auto;
+        position: absolute;
+        right: 12px;
+      }
+    }
+
+    .count-change {
+      svg {
+        width: 1.4em;
+      }
+    }
+  
+    .edit {
+      svg {
+        width: 1.03em;
+      }
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 14px;
+    }
+  }

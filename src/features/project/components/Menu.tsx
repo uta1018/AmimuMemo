@@ -7,7 +7,7 @@ import { IoLanguage } from "react-icons/io5";
 import { CgArrowsExchange } from "react-icons/cg";
 import { SlNote } from "react-icons/sl";
 import { useParams } from "react-router-dom";
-import './Menu.scss';
+import styles from "./Menu.module.scss"
 
 interface MenuProps {
   isChartVisible: boolean;
@@ -29,7 +29,7 @@ const Menu: React.FC<MenuProps> = ({ isChartVisible, openMemo }) => {
   return (
     <div>
       {/* メニューボタン */}
-      <div onClick={openMenu}>
+      <div onClick={openMenu} className={styles.menuButton}>
         <IoEllipsisHorizontalCircle />
       </div>
 
@@ -38,55 +38,55 @@ const Menu: React.FC<MenuProps> = ({ isChartVisible, openMemo }) => {
 
       {/* メニュー */}
       {isOpen && (
-        <div className="menu-container"
+        <div className={styles.menuContainer}
           style={{
             backgroundColor: "#fff",
             zIndex: 5,
           }}
         >
-          <ul>
-            <li className="menu">
+          <ul className={styles.menuList}>
+            <li className={styles.edit}>
               <a href={`/edit-project/${projectId}`}>
-                <p className="menu-content">作品の編集</p>
+                <p>作品の編集</p>
                 <FaPen />
               </a>
             </li>
             {/* データベース書き換え */}
             {isChartVisible ? (
-              <li className="menu">
+              <li>
                 <a href={`/project/${projectId}`}>
-                  <p  className="menu-content">編み図の非表示</p>
+                  <p>編み図の非表示</p>
                   <FaRegEyeSlash />
                 </a>
               </li>
             ) : (
-              <li className="menu">
+              <li>
                 <a href={`/project/${projectId}`}>
-                  <p className="menu-content">編み図の表示</p>
+                  <p>編み図の表示</p>
                   <FaRegEyeSlash />
                 </a>
               </li>
             )}
-            <li className="menu">
+            <li>
               <a href={`/project/${projectId}`}>
-                <p className="menu-content">日↔英の切り替え</p>
+                <p>日↔英の切り替え</p>
                 <IoLanguage />
               </a>
             </li>
-            <li className="menu">
+            <li className={styles.countChange}>
               <a href={`/project/${projectId}`}>
-                <p className="menu-content">カウント 行↔段切り替え</p>
+                <p>カウント 行↔段切り替え</p>
                 <CgArrowsExchange />
               </a>
             </li>
-            <li className="menu"
+            <li
               onClick={() => {
                 closeMenu();
                 openMemo();
               }}
             >
               <a>
-                <p className="menu-content">作品メモ</p>
+                <p>作品メモ</p>
                 <SlNote />
               </a>
             </li>
