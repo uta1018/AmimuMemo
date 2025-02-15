@@ -1,8 +1,11 @@
 import React from 'react'
+import HomeButton from '../../components/HomeButton'
 
 const Project: React.FC = () => {
   return (
-    <div>Project</div>
+    <div>
+      <HomeButton />
+    </div>
   )
 }
 
