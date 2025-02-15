@@ -1,4 +1,4 @@
-export function translateStitchType(stitchType: string, language: "ja" | "en"): string {
+export function translateStitchType(type: string, language: "ja" | "en"): string {
   if (language === "en") {
     const stitchTypes: { [key: string]: string } = {
       chain: "CH",
@@ -7,7 +7,7 @@ export function translateStitchType(stitchType: string, language: "ja" | "en"): 
       halfDouble: "HDH",
       slip: "slst",
     };
-    return stitchTypes[stitchType] || stitchType;
+    return stitchTypes[type] || type;
   } else {
     const stitchTypes: { [key: string]: string } = {
       chain: "鎖編み",
@@ -16,6 +16,6 @@ export function translateStitchType(stitchType: string, language: "ja" | "en"): 
       halfDouble: "中長編み",
       slip: "引き抜き編み",
     };
-    return stitchTypes[stitchType] || stitchType;
+    return stitchTypes[type] || type;
   }
 }

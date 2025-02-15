@@ -21,8 +21,8 @@ const Stitch: React.FC<StitchProps> = ({ stitch, language }) => {
     <div>
       <p>
         {language === "ja"
-          ? `${translateStitchType(stitch.stitchType, "ja")} ${stitch.count}目`
-          : `${translateStitchType(stitch.stitchType, "en")} ×${stitch.count}`}
+          ? `${translateStitchType(stitch.type, "ja")} ${stitch.count}目`
+          : `${translateStitchType(stitch.type, "en")} ×${stitch.count}`}
       </p>
       {(stitch.isInProgress || stitch.isSelected) && stitch.isMarked && (
         <p>{stitch.comment}</p>

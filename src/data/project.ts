@@ -13,55 +13,55 @@ export const dummyProjects: Project[] = [
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "halfDouble",
+    //         type: "halfDouble",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "halfDouble",
+    //         type: "halfDouble",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
@@ -72,50 +72,50 @@ export const dummyProjects: Project[] = [
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: true,
     //         isMarked: false,
     //         comment: "",
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
@@ -125,7 +125,7 @@ export const dummyProjects: Project[] = [
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "slip",
+    //         type: "slip",
     //         isCompleted: true,
     //         isMarked: false,
     //         comment: "輪に引き抜き編み",

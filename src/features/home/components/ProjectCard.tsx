@@ -1,5 +1,5 @@
 import React from "react";
-import { Project } from "../../../data/project";
+import { Project } from "../../../types/Project.types";
 import ProgressBar from "../../../components/ProgressBar";
 import { PiYarn } from "react-icons/pi";
 import { GrFormNext } from "react-icons/gr";

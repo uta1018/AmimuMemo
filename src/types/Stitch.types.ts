@@ -29,7 +29,8 @@ export type GroupedStitch = StitchInChart & {
 };
 
 export type StitchInApp = {
-  stitchType: string;
+  // StitchInChartのtypeと同じ型にしたい
+  type: string;
   isCompleted: boolean;
   comment?: string;
   markerColor?: string;
@@ -39,7 +40,7 @@ export type StitchInApp = {
 };
 
 // firebase用
-export type Stitch = GroupedStitch & Omit<StitchInApp, "stitchType">;
+export type Stitch = GroupedStitch & Omit<StitchInApp, "type">;
 
 export type StitchShapeProps = {
   type: StitchInChart["type"];
