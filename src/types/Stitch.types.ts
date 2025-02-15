@@ -25,7 +25,7 @@ export type StitchInChart = {
 
 // フォーマットから鎖編みまとめる用（いつかなくなるかも？）
 export type GroupedStitch = StitchInChart & {
-  count?: number;
+  chainCount?: number;
 };
 
 export type StitchInApp = {

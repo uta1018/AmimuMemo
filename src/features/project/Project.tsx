@@ -9,7 +9,7 @@ import ProgressBar from "../../components/ProgressBar";
 import Button from "../../components/Button";
 import Instruction from "./components/Instruction";
 import { rows } from "../../utils/convertRows";
-import { Language } from "../../data/project";
+import { Language } from "../../types/Project.types";
 import CrochetChart from "../../components/CrochetChart";
 
 const Project: React.FC = () => {

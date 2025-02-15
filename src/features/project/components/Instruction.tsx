@@ -1,7 +1,6 @@
 import React from "react";
-import { ConvertedRow, convertRows, Row } from "../../../utils/convertRows";
-// import { translateStitchType } from "../../../utils/translateStitch";
-import { Language } from "../../../data/project";
+import { convertRows } from "../../../utils/convertRows";
+import { Language, Row, ConvertedRow } from "../../../types/Project.types";
 import Stitch from "./Stitch";
 
 interface InstructionProps {
@@ -20,7 +19,7 @@ const Instruction: React.FC<InstructionProps> = ({ rows, language }) => {
             {language === "ja" ? `${rowIndex + 1}段目` : `Row ${rowIndex + 1}`}
           </p>
           {row.stitches.map((stitch) => (
-            <Stitch stitch={stitch} language={language}/>
+            <Stitch stitch={stitch} language={language} />
           ))}
         </div>
       ))}

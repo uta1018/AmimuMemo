@@ -1,6 +1,8 @@
 import { GroupedStitch, StitchInChart } from "../../types/Stitch.types";
 
-export const groupChainStitch = (stitches: StitchInChart[]): GroupedStitch[] => {
+export const groupChainStitch = (
+  stitches: StitchInChart[]
+): GroupedStitch[] => {
   const groupedStitches: GroupedStitch[] = [];
   let currentStitch: StitchInChart | null = null;
   let count = 0;
@@ -12,7 +14,7 @@ export const groupChainStitch = (stitches: StitchInChart[]): GroupedStitch[] => 
       if (index === stitches.length - 1 && currentStitch) {
         groupedStitches.push({
           ...currentStitch,
-          count,
+          chainCount: count,
         });
       }
     } else if (stitch.type === "chain") {
@@ -23,7 +25,7 @@ export const groupChainStitch = (stitches: StitchInChart[]): GroupedStitch[] => 
       if (index === stitches.length - 1 && currentStitch) {
         groupedStitches.push({
           ...currentStitch,
-          count,
+          chainCount: count,
         });
       }
     } else if (currentStitch) {
@@ -31,7 +33,7 @@ export const groupChainStitch = (stitches: StitchInChart[]): GroupedStitch[] => 
       groupedStitches.push(
         {
           ...currentStitch,
-          count: count,
+          chainCount: count,
         },
         stitch
       );

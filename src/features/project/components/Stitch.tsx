@@ -1,8 +1,7 @@
 // Stitch.tsx
 import React from "react";
 import { translateStitchType } from "../../../utils/translateStitch";
-import { Language } from "../../../data/project";
-import { ConvertedStitch } from "../../../utils/convertRows";
+import { ConvertedStitch, Language } from "../../../types/Project.types";
 // import classNames from "classnames";
 
 interface StitchProps {

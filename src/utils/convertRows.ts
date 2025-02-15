@@ -1,24 +1,5 @@
+import { ConvertedRow, ConvertedStitch, Row } from "../types/Project.types";
 import { StitchInApp } from "../types/Stitch.types";
-
-export interface Row {
-  stitches: StitchInApp[];
-}
-
-export interface ConvertedStitch {
-  stitchType: string;
-  isCompleted: boolean;
-  comment?: string;
-  markerColor?: string;
-  isMarked: boolean;
-  count: number;
-  // 追加: グループ内のいずれかが編み途中または選択中ならtrue
-  isInProgress: boolean;
-  isSelected: boolean;
-}
-
-export interface ConvertedRow {
-  stitches: ConvertedStitch[];
-}
 
 export function convertRows(rows: Row[]): ConvertedRow[] {
   return rows.map((row) => {
@@ -111,6 +92,3 @@ export const rows: Row[] = [
   }
   // 他の段も同様に追加可能
 ];
-
-
-
