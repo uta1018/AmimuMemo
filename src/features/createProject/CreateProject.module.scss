@@ -1,0 +1,28 @@
+.create-page-container {
+  margin-top: 60px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin: 0px 50px 0px 10px;
+
+    h3 {
+      margin: auto;
+    }
+  }
+
+  form {
+    margin: 0px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #E4A1B6;;
+    }
+  }
+}
+

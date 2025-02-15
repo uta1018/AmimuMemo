@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import { AiOutlineReload } from "react-icons/ai";
+import styles from "./CreateProject.module.scss";
 
 export type FormValues = {
   title: string;
@@ -35,9 +36,11 @@ const CreateProject: React.FC = () => {
   };
 
   return (
-    <>
-      <HomeButton />
-      <PageTitle>新規作成</PageTitle>
+    <div className={styles.createPageContainer}>
+      <div className={styles.header}>
+        <HomeButton />
+        <PageTitle>新規作成</PageTitle>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="title">作品名</label>
@@ -53,8 +56,10 @@ const CreateProject: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="description">編み方テキスト</label>
-          <IoMdHelpCircleOutline />
+          <div>
+            <label htmlFor="description">編み方テキスト</label>
+            <IoMdHelpCircleOutline />
+          </div>
           <textarea
             id="description"
             {...register("description", {
@@ -70,7 +75,10 @@ const CreateProject: React.FC = () => {
           )}
         </div>
 
-        <button type="submit"><AiOutlineReload />編み図出力</button>
+        <button type="submit">
+          <AiOutlineReload />
+          編み図出力
+        </button>
         <Button
           color="secondary"
           onClick={saveProject}
@@ -79,7 +87,7 @@ const CreateProject: React.FC = () => {
           保存
         </Button>
       </form>
-    </>
+    </div>
   );
 };
 

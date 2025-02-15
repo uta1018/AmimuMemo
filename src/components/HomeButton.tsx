@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GrFormPrevious } from "react-icons/gr";
+import styles from "./HomeButton.module.scss"
 
 const HomeButton: React.FC = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const HomeButton: React.FC = () => {
   };
 
   return (
-    <div onClick={goToHomePage}>
+    <div onClick={goToHomePage} className={styles.homeButton}>
       <GrFormPrevious />
     </div>
   );
