@@ -1,0 +1,22 @@
+.button-container {
+  width: 148px;
+  height: 44px;
+  border-radius: 200px;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E4A1B6;
+}
+
+:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.button-secondary {
+  background-color: #99CBE7;
+}
