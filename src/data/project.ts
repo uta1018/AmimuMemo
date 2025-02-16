@@ -1,14 +1,14 @@
 // src/data/works.ts
-import { Project } from "../types/Project.types";
-import { unprocessedStitches } from "./chartData";
+import { ProjectType } from "../types/Project.types";
+import { rows } from "../utils/convertRows";
 
-export const dummyProjects: Project[] = [
+export const dummyProjects: ProjectType[] = [
   {
     id: "1",
     author: "uuu",
     title: "ハートのモチーフ",
     createdAt: new Date("2025-02-01"),
-    rows: []
+    rows: [],
     // rows: [
     //   // 1段目
     //   {
@@ -142,8 +142,6 @@ export const dummyProjects: Project[] = [
     title: "ニット帽",
     createdAt: new Date("2025-02-01"),
     updatedAt: new Date("2025-02-01"),
-    rows: unprocessedStitches.map((round) => {
-      return { stitches: round };
-    }),
+    rows,
   },
 ];

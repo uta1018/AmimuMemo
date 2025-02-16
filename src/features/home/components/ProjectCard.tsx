@@ -1,5 +1,5 @@
 import React from "react";
-import { Project } from "../../../types/Project.types";
+import { ProjectType } from "../../../types/Project.types";
 import ProgressBar from "../../../components/ProgressBar";
 import { PiYarn } from "react-icons/pi";
 import { GrFormNext } from "react-icons/gr";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectType;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {

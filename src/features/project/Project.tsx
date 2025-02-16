@@ -8,15 +8,18 @@ import RowCounter from "./components/RowCounter";
 import ProgressBar from "../../components/ProgressBar";
 import Button from "../../components/Button";
 import Instruction from "./components/Instruction";
-import { rows } from "../../utils/convertRows";
-import { Language } from "../../types/Project.types";
+// import { rows } from "../../utils/convertRows";
+import { Language, ProjectType } from "../../types/Project.types";
 import CrochetChart from "../../components/CrochetChart";
 import styles from "./Project.module.scss";
+import { dummyProjects } from "../../data/project";
 
 const Project: React.FC = () => {
   const [isChartVisible] = useState(true);
   const [isMemoVisible, setIsMemoVisible] = useState(false);
   const language: Language = "ja";
+
+  const [project, ] = useState<ProjectType>(dummyProjects[1]);
 
   const openMemo = () => {
     setIsMemoVisible(true);
@@ -44,7 +47,7 @@ const Project: React.FC = () => {
           <ProgressBar progress={60} parents="project-page" />
         </div>
         <div className={styles.instructionContainer}>
-          <Instruction rows={rows} language={language} />
+          <Instruction rows={project.rows} language={language} />
         </div>
         <div className={styles.buttonContainer}>
           <Button color="secondary" width={120} onClick={() => {}}>

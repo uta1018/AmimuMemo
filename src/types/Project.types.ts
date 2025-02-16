@@ -1,7 +1,7 @@
 import { Stitch } from "./Stitch.types";
 
 // これはfirebaseで使うかも
-export type Project = {
+export type ProjectType = {
   id: string;
   author: string;
   title: string;
