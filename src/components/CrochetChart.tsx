@@ -4,6 +4,7 @@ import StitchShape from "./StitchShape";
 import { processRounds } from "../utils/charts/processRounds";
 import { dummyProjects } from "../data/project";
 import { Stitch } from "../types/Stitch.types";
+import styles from "./CrochetChart.module.scss";
 
 // useMemoでメモ化推奨？
 // 二度手間だがRowsからStitchの2次元配列を生成する
@@ -11,9 +12,7 @@ import { Stitch } from "../types/Stitch.types";
 // 将来これはpropsで受け取ってCrochetChartに渡す
 const rowsData = dummyProjects[1].rows;
 
-const newUnprocessedStitches: Stitch[][] = rowsData.map(
-  (row) => row.stitches
-);
+const newUnprocessedStitches: Stitch[][] = rowsData.map((row) => row.stitches);
 const processedStitches = processRounds(newUnprocessedStitches);
 
 const CrochetChart = () => {
@@ -33,24 +32,26 @@ const CrochetChart = () => {
   };
 
   return (
-    <Stage width={500} height={500} offsetX={-250} offsetY={250} scaleY={-1}>
-      <Layer>
-        {processedStitches.map((round, roundIndex) =>
-          round.map((stitch, stitchIndex) => (
-            <StitchShape
-              key={`${roundIndex}-${stitchIndex}`}
-              type={stitch.type}
-              x={stitch.x}
-              y={stitch.y}
-              rotation={stitch.rotation || 0}
-              index={roundIndex * 1000 + stitchIndex} // ユニークなindexを生成
-              judgeIsSelected={judgeIsSelected}
-              handleColor={handleColor}
-            />
-          ))
-        )}
-      </Layer>
-    </Stage>
+    <div className={styles.chart}>
+      <Stage width={400} height={300} offsetX={-200} offsetY={120} scaleY={-1}>
+        <Layer>
+          {processedStitches.map((round, roundIndex) =>
+            round.map((stitch, stitchIndex) => (
+              <StitchShape
+                key={`${roundIndex}-${stitchIndex}`}
+                type={stitch.type}
+                x={stitch.x}
+                y={stitch.y}
+                rotation={stitch.rotation || 0}
+                index={roundIndex * 1000 + stitchIndex} // ユニークなindexを生成
+                judgeIsSelected={judgeIsSelected}
+                handleColor={handleColor}
+              />
+            ))
+          )}
+        </Layer>
+      </Stage>
+    </div>
   );
 };
 
