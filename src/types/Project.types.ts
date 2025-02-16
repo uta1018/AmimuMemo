@@ -5,13 +5,14 @@ export type Project = {
   id: string;
   author: string;
   title: string;
-  createdAt: string; // 作成日
-  updatedAt: Date;
-  rows?: Row[];
+  createdAt?: Date; // 作成日
+  updatedAt?: Date;
+  rows: Row[];
 };
 
 export type Language = "en" | "ja";
 
+// 引き抜き編みを考慮し二次元配列ではなくこの型を使う
 export type Row = {
   stitches: Stitch[];
 };

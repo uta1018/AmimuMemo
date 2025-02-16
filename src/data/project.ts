@@ -1,5 +1,6 @@
 // src/data/works.ts
 import { Project } from "../types/Project.types";
+import { unprocessedStitches } from "./chartData";
 
 export const dummyProjects: Project[] = [
   {
@@ -8,6 +9,7 @@ export const dummyProjects: Project[] = [
     title: "ハートのモチーフ",
     createdAt: "2025-02-01",
     updatedAt: new Date("2025-02-01"),
+    rows: []
     // rows: [
     //   // 1段目
     //   {
@@ -134,11 +136,15 @@ export const dummyProjects: Project[] = [
     //     ]
     //   },
     // ]
-  },{
+  },
+  {
     id: "2",
     author: "uuu",
     title: "ニット帽",
     createdAt: "2025-02-01",
     updatedAt: new Date("2025-02-01"),
-  }
+    rows: unprocessedStitches.map((round) => {
+      return { stitches: round };
+    }),
+  },
 ];

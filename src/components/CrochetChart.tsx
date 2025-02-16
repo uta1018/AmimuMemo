@@ -2,11 +2,19 @@ import { useState } from "react";
 import { Stage, Layer } from "react-konva";
 import StitchShape from "./StitchShape";
 import { processRounds } from "../utils/charts/processRounds";
-import { unprocessedStitches } from "../data/chartData";
+import { dummyProjects } from "../data/project";
+import { Stitch } from "../types/Stitch.types";
+
+// useMemoでメモ化推奨？
+// 二度手間だがRowsからStitchの2次元配列を生成する
 
 // 将来これはpropsで受け取ってCrochetChartに渡す
-// useMemoでメモ化推奨？
-const processedStitches = processRounds(unprocessedStitches);
+const rowsData = dummyProjects[1].rows;
+
+const newUnprocessedStitches: Stitch[][] = rowsData.map(
+  (row) => row.stitches
+);
+const processedStitches = processRounds(newUnprocessedStitches);
 
 const CrochetChart = () => {
   const [shapeSelectedState, setShapeSelectedState] = useState({

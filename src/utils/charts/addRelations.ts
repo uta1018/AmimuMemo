@@ -1,6 +1,6 @@
-import { StitchInChart } from "../../types/Stitch.types";
+import { Stitch } from "../../types/Stitch.types";
 
-export const addRelations = (rounds: StitchInChart[][]) => {
+export const addRelations = (rounds: Stitch[][]) => {
   return rounds.map((round, roundIndex, allRounds) => {
     let currentRelative = 0;
     const maxPrevIndex =
