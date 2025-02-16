@@ -28,10 +28,9 @@ export type GroupedStitch = StitchInChart & {
   chainCount?: number;
 };
 
-// StitchInAppは将来Stitchにしたい（読み取れるプロパティ増やしたい）
-export type StitchInApp = {
-  // StitchInChartのtypeと同じ型にしたい
-  type: string;
+// firebase用
+// countはfirebaseに含める？
+export type Stitch = GroupedStitch & {
   isCompleted: boolean;
   comment?: string;
   markerColor?: string;
@@ -39,8 +38,5 @@ export type StitchInApp = {
   isInProgress: boolean;
   isSelected: boolean;
 };
-
-// firebase用
-export type Stitch = GroupedStitch & Omit<StitchInApp, "type">;
 
 // StitchShapePropsは要検討→作画でも他のプロパティを受け取る必要があるのかどうか

@@ -1,4 +1,4 @@
-import { StitchInApp } from "./Stitch.types";
+import { Stitch } from "./Stitch.types";
 
 // これはfirebaseで使うかも
 export type Project = {
@@ -13,10 +13,10 @@ export type Project = {
 export type Language = "en" | "ja";
 
 export type Row = {
-  stitches: StitchInApp[];
+  stitches: Stitch[];
 };
 
-export type ConvertedStitch = StitchInApp & {
+export type ConvertedStitch = Stitch & {
   count: number;
 };
 

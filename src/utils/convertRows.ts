@@ -1,10 +1,10 @@
 import { ConvertedRow, ConvertedStitch, Row } from "../types/Project.types";
-import { StitchInApp } from "../types/Stitch.types";
+import { Stitch } from "../types/Stitch.types";
 
 export function convertRows(rows: Row[]): ConvertedRow[] {
   return rows.map((row) => {
     const convertedStitches: ConvertedStitch[] = [];
-    let currentStitch: StitchInApp | null = null;
+    let currentStitch: Stitch | null = null;
     let count = 0;
     let groupInProgress = false;
     let groupSelected = false;
