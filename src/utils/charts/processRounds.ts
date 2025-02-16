@@ -1,9 +1,9 @@
-import { StitchInChart } from "../../types/Stitch.types";
+import { Stitch } from "../../types/Stitch.types";
 
 import { getRotation } from "./getRotation";
 import { addRelations } from "./addRelations";
 
-export const processRounds = (rounds: StitchInChart[][]) => {
+export const processRounds = (rounds: Stitch[][]) => {
   const MARGIN = 5;
   const MAGIC_RING_RADIUS = typeToHeight["magicRing"];
 
@@ -20,7 +20,7 @@ export const processRounds = (rounds: StitchInChart[][]) => {
   rounds = addRelations(rounds);
 
   // 処理後の rounds を格納する配列
-  const processedRounds: StitchInChart[][] = [];
+  const processedRounds: Stitch[][] = [];
   // magicRingを格納
   processedRounds[0] = rounds[0];
 
@@ -46,7 +46,7 @@ export const processRounds = (rounds: StitchInChart[][]) => {
   // 2回目以降の round を順次処理
   for (let i = 2; i < rounds.length; i++) {
     // 前の round の処理済みデータ
-    const prevRound: StitchInChart[] = processedRounds[i - 1];
+    const prevRound: Stitch[] = processedRounds[i - 1];
     // relativeToが等しい要素の個数をカウント
     const relativeToCount: Record<number, number> = {};
     rounds[i].forEach((stitch) => {
@@ -62,7 +62,7 @@ export const processRounds = (rounds: StitchInChart[][]) => {
     // 現在の round を処理
     processedRounds[i] = rounds[i].map((stitch) => {
       const sourceIndex = (stitch.relativeTo || stitch.index) ?? 0;
-      const prevStitch: StitchInChart = prevRound[sourceIndex];
+      const prevStitch: Stitch = prevRound[sourceIndex];
 
       // relativeToが重なったときの処理
       if (relativeToIndex[sourceIndex] === undefined) {

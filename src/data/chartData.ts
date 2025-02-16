@@ -1,4 +1,4 @@
-import { StitchInChart } from "../types/Stitch.types";
+import { Stitch, StitchInChart } from "../types/Stitch.types";
 
 // ハートメモ
 // 1．輪の作り目で編む
@@ -16,7 +16,7 @@ import { StitchInChart } from "../types/Stitch.types";
 // マーカーを付けた目だけ 長編みを2目 編む（ハートのとんがり部分）
 // 引き抜き編み で2段目を完成させる
 
-// const stitches: StitchInChart[] = [
+// const stitches: Stitch[] = [
 //   // マジックリング（○）
 //   { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
 //   // 鎖編み（○）
@@ -43,7 +43,8 @@ import { StitchInChart } from "../types/Stitch.types";
 //   { type: "slip", x: 0, y: -160 },
 // ];
 
-export const unprocessedStitches: StitchInChart[][] = [
+//作画に必要な最低限のプロパティ
+const draftStitches: StitchInChart[][] = [
   [{ type: "magicRing", index: 0, x: 0, y: 0 }],
   [
     { type: "chain", index: 0 },
@@ -85,7 +86,34 @@ export const unprocessedStitches: StitchInChart[][] = [
   ],
 ];
 
-// const stitches: StitchInChart[] = [
+export const unprocessedStitches: Stitch[][] = draftStitches.map(
+  (round, roundIndex) => {
+    return round.map((stitch) => {
+      if (roundIndex === 0) {
+        return {
+          ...stitch,
+          isCompleted: false,
+          comment: "1段目です",
+          markerColor: "#00FF00",
+          isMarked: false,
+          isInProgress: false,
+          isSelected: false,
+        };
+      }
+      return {
+        ...stitch,
+        isCompleted: false,
+        comment: "",
+        markerColor: "",
+        isMarked: false,
+        isInProgress: false,
+        isSelected: false,
+      };
+    });
+  }
+);
+
+// const stitches: Stitch[] = [
 //   // マジックリング（○）
 //   { type: "magicRing", x: 0, y: 0, r: 30, label: "わ" },
 //   // 鎖編み（○）

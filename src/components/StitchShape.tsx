@@ -1,12 +1,12 @@
 import Konva from "konva";
 import { Shape } from "react-konva";
-import { StitchInChart } from "../types/Stitch.types";
+import { Stitch } from "../types/Stitch.types";
 
 export type StitchShapeProps = {
-  type: StitchInChart["type"];
-  x: StitchInChart["x"];
-  y: StitchInChart["y"];
-  rotation?: StitchInChart["rotation"];
+  type: Stitch["type"];
+  x: Stitch["x"];
+  y: Stitch["y"];
+  rotation?: Stitch["rotation"];
   index: number;
   judgeIsSelected: (index: number) => boolean;
   handleColor: (index: number) => void;

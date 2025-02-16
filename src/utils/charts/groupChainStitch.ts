@@ -1,10 +1,10 @@
-import { GroupedStitch, StitchInChart } from "../../types/Stitch.types";
+import { GroupedStitch, Stitch } from "../../types/Stitch.types";
 
 export const groupChainStitch = (
-  stitches: StitchInChart[]
+  stitches: Stitch[]
 ): GroupedStitch[] => {
   const groupedStitches: GroupedStitch[] = [];
-  let currentStitch: StitchInChart | null = null;
+  let currentStitch: Stitch | null = null;
   let count = 0;
 
   stitches.forEach((stitch, index) => {
