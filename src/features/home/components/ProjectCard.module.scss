@@ -3,16 +3,17 @@
     background: white;
     border-radius: 20px;
     border: 2px solid #F1D3CE;
-    margin-bottom: 10px;
     height: 76px;
     font-weight: 800;
     display: flex;
     align-items: center;
     padding: 0 16px;
+    max-width: 320px;
+    width: 100%;
 
     .icon {
         color: #F1D3CE;
-        width: 20px;
+        width: 24px;
         height: auto;
         margin-right: 12px;
     }
@@ -22,6 +23,7 @@
         flex-direction: column;
         justify-content: flex-start;
         gap: 5px;
+        width: 100%;
     }
 
     .title {
@@ -33,11 +35,7 @@
 
     .next-icon {
         color: #F1D3CE;
-        width: 20px;
+        width: 24px;
         height: auto;
-    }
-
-    .progress {
-        font-size: 12px;
     }
 }

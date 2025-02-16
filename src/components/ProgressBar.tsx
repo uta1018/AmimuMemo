@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import styles from "./ProgressBar.module.scss";
 
 interface ProgressProps {
   progress: number;
@@ -7,17 +8,22 @@ interface ProgressProps {
 }
 
 const ProgressBar: React.FC<ProgressProps> = ({ progress, parents }) => {
-  const progressBarClass = classNames({
-    "progressbar--home-page": parents === "home-page",
-    "progressbar--project-page": parents === "project-page",
+  const progressBarClass = classNames([styles.progressbar], {
+    [styles.progressbarHomePage]: parents === "home-page",
+    [styles.progressbarProjectPage]: parents === "project-page",
   });
 
+  // 0から100の範囲に収める
+  const validProgress = Math.min(100, Math.max(0, progress));
+
   return (
-    <div>
-      <p>{progress}%</p>
-      <div>
-        {/* 進捗バー */}
-        <div></div>
+    <div className={progressBarClass}>
+      <p>
+        {progress}
+        <span>%</span>
+      </p>
+      <div className={styles.bar}>
+        <div style={{ width: `${validProgress}%` }}></div>
       </div>
     </div>
   );
