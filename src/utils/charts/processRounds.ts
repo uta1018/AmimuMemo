@@ -1,16 +1,23 @@
 import { StitchInChart } from "../../types/Stitch.types";
+
 import { getRotation } from "./getRotation";
+import { addRelations } from "./addRelations";
 
 export const processRounds = (rounds: StitchInChart[][]) => {
   const MARGIN = 5;
   const MAGIC_RING_RADIUS = typeToHeight["magicRing"];
 
   // 最初の要素のtypeが"magicRing"であるかをチェック
-  if (rounds[0][0].type !== "magicRing") {
+  if (rounds[0][0].type === "magicRing") {
+    rounds[0][0] = { ...rounds[0][0], x: 0, y: 0 };
+  } else {
     console.error(
       'The first element of the first round must be of type "magicRing".'
     );
   }
+
+  // relativeToを追加
+  rounds = addRelations(rounds);
 
   // 処理後の rounds を格納する配列
   const processedRounds: StitchInChart[][] = [];
@@ -40,15 +47,40 @@ export const processRounds = (rounds: StitchInChart[][]) => {
   for (let i = 2; i < rounds.length; i++) {
     // 前の round の処理済みデータ
     const prevRound: StitchInChart[] = processedRounds[i - 1];
+    // relativeToが等しい要素の個数をカウント
+    const relativeToCount: Record<number, number> = {};
+    rounds[i].forEach((stitch) => {
+      const relativeTo = stitch.relativeTo ?? stitch.index ?? 0;
+      if (relativeToCount[relativeTo] === undefined) {
+        relativeToCount[relativeTo] = 0;
+      }
+      relativeToCount[relativeTo]++;
+    });
+
+    const relativeToIndex: Record<number, number> = {};
+
     // 現在の round を処理
     processedRounds[i] = rounds[i].map((stitch) => {
       const sourceIndex = (stitch.relativeTo || stitch.index) ?? 0;
       const prevStitch: StitchInChart = prevRound[sourceIndex];
 
+      // relativeToが重なったときの処理
+      if (relativeToIndex[sourceIndex] === undefined) {
+        relativeToIndex[sourceIndex] = 0;
+      }
+      const currentIndex = relativeToIndex[sourceIndex]++;
+      const totalRelativeToCount = relativeToCount[sourceIndex];
+      const updatedRotation =
+        totalRelativeToCount > 1
+          ? (prevStitch.rotation ?? 0) -
+            90 +
+            (180 * (currentIndex + 1)) / (totalRelativeToCount + 1)
+          : prevStitch.rotation;
+
       return {
         ...stitch,
         height: typeToHeight[stitch.type] || 0,
-        rotation: prevStitch.rotation,
+        rotation: updatedRotation,
         x:
           (prevStitch.x ?? 0) +
           ((prevStitch.height ?? 0) + MARGIN) *
