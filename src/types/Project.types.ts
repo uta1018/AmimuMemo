@@ -5,8 +5,8 @@ export type Project = {
   id: string;
   author: string;
   title: string;
-  createdAt: string; // 作成日
-  updatedAt: Date;
+  createdAt?: Date; // 作成日
+  updatedAt?: Date;
   rows: Row[];
 };
 
