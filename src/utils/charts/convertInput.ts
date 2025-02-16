@@ -1,5 +1,12 @@
 import { StitchInChart, STITCH_TYPE_KEYS } from "../../types/Stitch.types";
 
+
+/*
+入力形式：
+"magicRing
+ch3, sc3, dc2
+sc3, inc1, tr2, tr->6, hdc1"
+*/
 export const parseStitchInput = (input: string) => {
 
   type StitchType = (typeof STITCH_TYPE_KEYS)[number];
