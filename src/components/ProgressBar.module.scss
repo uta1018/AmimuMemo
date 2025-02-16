@@ -40,8 +40,9 @@
 
 .progressbar-project-page {
   flex-direction: column;
+  width: 100%;
 
   .bar {
-    width: 182px;
+    width: 100%;
   }
 }

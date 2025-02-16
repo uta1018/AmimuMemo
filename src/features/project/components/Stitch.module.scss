@@ -1,0 +1,58 @@
+.stitch {
+  font-size: 17px;
+  color: #EECAD5;
+
+  svg {
+    width:16px;
+    padding: 2px;
+    height: auto;
+  }
+}
+
+.completed {
+  color: #E4A1B6;
+}
+
+.marked {
+  color: #C2DCEA;
+  margin-left: -16px;
+
+  .comment {
+    margin-left: 24px;
+  }
+}
+
+.completed-marked {
+  color: #99CBE7;
+  margin-left: -16px;
+
+  .comment {
+    margin-left: 24px;
+  }
+}
+
+.inProgress {
+  color: #E4A1B6;
+  font-weight: 800;
+}
+
+.in-progress-marked {
+  color: #99CBE7;
+  font-weight: 800;
+  margin-left: -16px;
+
+  .comment {
+    margin-left: 24px;
+  }
+}
+
+.selected {
+  color: #EDAA9F;
+  font-weight: 800;
+}
+
+.comment {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 2px 8px 6px;
+}
