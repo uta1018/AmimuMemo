@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import styles from "./Button.module.scss";
 
 interface ButtonProps {
   color: "primary" | "secondary";
@@ -14,9 +15,9 @@ const Button: React.FC<ButtonProps> = ({
   children,
   disabled,
 }) => {
-  const buttonClass = classNames({
-    "button--primary": color === "primary",
-    "button--secondary": color === "secondary",
+  const buttonClass = classNames([styles.buttonContainer],{
+    [styles.buttonPrimary]: color === "primary",
+    [styles.buttonSecondary]: color === "secondary",
   });
 
   return (

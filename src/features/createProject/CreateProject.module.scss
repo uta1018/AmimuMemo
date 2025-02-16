@@ -4,7 +4,7 @@
   .header {
     display: flex;
     align-items: center;
-    margin: 0px 50px 0px 10px;
+    margin: 0px 50px 32px 10px;
 
     h3 {
       margin: auto;
@@ -21,7 +21,68 @@
       display: block;
       font-size: 14px;
       font-weight: 600;
-      color: #E4A1B6;;
+      color: #E4A1B6;
+    }
+
+    .description-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      svg {
+        color: #EECAD5;
+        width: 18px;
+        height: auto;
+      }
+    }
+
+    input, textarea {
+      background-color: #fff;
+      width: 100%;
+      border-radius: 10px;
+      height: 36px;
+      padding: 6px;
+      font-size: 14px;
+      color: #7D7268;
+      margin-top: 8px;
+    }
+
+    textarea {
+      background-color: #fff;
+      height: 164px;
+    }
+
+    textarea::placeholder {
+      color: #7D7268;
+      opacity: .8;
+    }
+
+    .chart-button {
+      width: 112px;
+      height: 28px;
+      background-color: #99CBE7;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      cursor: pointer;
+
+      svg {
+        width: 16px;
+        height: auto;
+        stroke-width: 80px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: #7D7268;
+      margin-top: 4px;
     }
   }
 }

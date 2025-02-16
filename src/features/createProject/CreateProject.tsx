@@ -46,7 +46,7 @@ const CreateProject: React.FC = () => {
           <label htmlFor="title">作品名</label>
           <input
             id="title"
-            {...register("title", { required: "作品名は必須です" })}
+            {...register("title", { required: "※作品名は必須です" })}
           />
           {errors.title && (
             <p>
@@ -56,14 +56,14 @@ const CreateProject: React.FC = () => {
         </div>
 
         <div>
-          <div>
+          <div className={styles.descriptionLabel}>
             <label htmlFor="description">編み方テキスト</label>
             <IoMdHelpCircleOutline />
           </div>
           <textarea
             id="description"
             {...register("description", {
-              required: "編み方テキストは必須です",
+              required: "※編み方テキストは必須です",
             })}
             placeholder="テキストを入力"
           />
@@ -75,7 +75,7 @@ const CreateProject: React.FC = () => {
           )}
         </div>
 
-        <button type="submit">
+        <button type="submit" className={styles.chartButton}>
           <AiOutlineReload />
           編み図出力
         </button>
