@@ -1,0 +1,47 @@
+.progressbar {
+  display: flex;
+  gap: 2px;
+
+  p {
+    color: #E4A1B6;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  span {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .bar {
+    height: 8px;
+    border-radius: 20px;
+    background-color: #E9F1F5;
+    overflow: hidden;
+
+    div {
+      height: 8px;
+      border-radius: 200px;
+      background-color: #E4A1B6;
+    }
+  }
+}
+
+.progressbar-home-page {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  .bar {
+    width: 200px;
+    margin-right: 10px;
+  }
+}
+
+.progressbar-project-page {
+  flex-direction: column;
+
+  .bar {
+    width: 182px;
+  }
+}
