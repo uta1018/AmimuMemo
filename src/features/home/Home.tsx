@@ -2,8 +2,7 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 import ProjectCard from "./components/ProjectCard";
 import { dummyProjects } from "../../data/project";
-import styles from "./Home.module.scss"
-
+import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   return (
@@ -16,8 +15,8 @@ const Home: React.FC = () => {
         </a>
       </div>
       <div className={styles.projectContainer}>
-        {dummyProjects.map((project) => (
-          <ProjectCard project={project} />
+        {dummyProjects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </div>
