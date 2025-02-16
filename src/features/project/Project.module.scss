@@ -1,0 +1,40 @@
+.project-container {
+  max-height: 100vh;
+  overflow: hidden;
+
+  header {
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 60px auto 24px;
+  }
+
+  .content {
+    width: calc(100% - 64px);
+    margin: 0px auto;
+
+    .progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .instruction-container {
+      max-height: 220px;
+      overflow-y: scroll;
+      margin-bottom: 36px;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+
+      button {
+        height: 52px;
+      }
+    }
+  }
+}

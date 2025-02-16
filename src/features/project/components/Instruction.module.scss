@@ -1,0 +1,17 @@
+.instruction-container {
+  .row, .completed-row{
+    display: flex;
+    gap: 20px;
+    font-size: 17px;
+    color: #EECAD5;
+    margin-bottom: 8px;
+  }
+
+  .completed-row {
+    color: #E4A1B6;
+  }
+
+  .row p {
+    padding: 1px 0px;
+  }
+}

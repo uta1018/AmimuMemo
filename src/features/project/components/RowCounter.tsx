@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./RowCounter.module.scss";
 
 interface RowCounterProps {
   completedSteps: number;
@@ -11,7 +12,7 @@ const RowCounter: React.FC<RowCounterProps> = ({
   totalSteps,
   currentLanguage,
 }) => {
-  return <div>{currentLanguage === "ja" ? <h3>{completedSteps} / {totalSteps}段</h3> : <h3>R{completedSteps} / R{totalSteps}</h3>}</div>;
+  return <div className={styles.rowCounter}>{currentLanguage === "ja" ? <h3>{completedSteps} / {totalSteps}段</h3> : <h3>R{completedSteps} / R{totalSteps}</h3>}</div>;
 };
 
 export default RowCounter;

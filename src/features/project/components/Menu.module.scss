@@ -1,4 +1,10 @@
 .menu-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   svg {
     color: #E4A1B6;
     width: 20px;
@@ -8,8 +14,8 @@
 
 .menu-container {
     position: absolute;
-    top: 40px;
-    right: 12px;
+    top: 92px;
+    right: 20px;
     background: white;
     border-radius: 10px;
     z-index: 5;
