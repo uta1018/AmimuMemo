@@ -1,32 +1,5 @@
-export interface Stitch {
-  stitchType: string;
-  isCompleted: boolean;
-  comment?: string;
-  markerColor?: string;
-  isMarked: boolean;
-  isInProgress: boolean;
-  isSelected: boolean;
-}
-
-export interface Row {
-  stitches: Stitch[];
-}
-
-export interface ConvertedStitch {
-  stitchType: string;
-  isCompleted: boolean;
-  comment?: string;
-  markerColor?: string;
-  isMarked: boolean;
-  count: number;
-  // 追加: グループ内のいずれかが編み途中または選択中ならtrue
-  isInProgress: boolean;
-  isSelected: boolean;
-}
-
-export interface ConvertedRow {
-  stitches: ConvertedStitch[];
-}
+import { ConvertedRow, ConvertedStitch, Row } from "../types/Project.types";
+import { Stitch } from "../types/Stitch.types";
 
 export function convertRows(rows: Row[]): ConvertedRow[] {
   return rows.map((row) => {
@@ -40,7 +13,7 @@ export function convertRows(rows: Row[]): ConvertedRow[] {
       // グループ化する条件：stitchType が同じで、かつマーカーが付いていない
       if (
         currentStitch &&
-        stitch.stitchType === currentStitch.stitchType &&
+        stitch.type === currentStitch.type &&
         !stitch.isMarked &&
         !currentStitch.isMarked
       ) {
@@ -52,7 +25,7 @@ export function convertRows(rows: Row[]): ConvertedRow[] {
         // 前のグループがあれば保存
         if (currentStitch) {
           convertedStitches.push({
-            stitchType: currentStitch.stitchType,
+            type: currentStitch.type,
             isCompleted: currentStitch.isCompleted,
             comment: currentStitch.comment,
             markerColor: currentStitch.markerColor,
@@ -72,7 +45,7 @@ export function convertRows(rows: Row[]): ConvertedRow[] {
       // 最後の目を処理
       if (index === row.stitches.length - 1 && currentStitch) {
         convertedStitches.push({
-          stitchType: currentStitch.stitchType,
+          type: currentStitch.type,
           isCompleted: currentStitch.isCompleted,
           comment: currentStitch.comment,
           markerColor: currentStitch.markerColor,
@@ -92,34 +65,31 @@ export const rows: Row[] = [
   
   {
     stitches: [
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false,  isSelected: false },
-      { stitchType: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "halfDouble", isCompleted: true, isMarked: false,  isInProgress: false, isSelected: false },
-      { stitchType: "halfDouble", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "slip", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false }
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false,  isSelected: false },
+      { type: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "halfDouble", isCompleted: true, isMarked: false,  isInProgress: false, isSelected: false },
+      { type: "halfDouble", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "slip", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false }
     ],
   },
   {
     stitches: [
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "chain", isCompleted: true, isMarked: false, isInProgress: false,  isSelected: false },
-      { stitchType: "double", isCompleted: true, isMarked: true, isInProgress: false, isSelected: false, comment: "マーカー付ける"},
-      { stitchType: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "halfDouble", isCompleted: false, isMarked: false,  isInProgress: true, isSelected: false },
-      { stitchType: "halfDouble", isCompleted: false, isMarked: false, isInProgress: true, isSelected: false },
-      { stitchType: "double", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "double", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false },
-      { stitchType: "slip", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false }
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "chain", isCompleted: true, isMarked: false, isInProgress: false,  isSelected: false },
+      { type: "double", isCompleted: true, isMarked: true, isInProgress: false, isSelected: false, comment: "マーカー付ける"},
+      { type: "double", isCompleted: true, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "halfDouble", isCompleted: false, isMarked: false,  isInProgress: true, isSelected: false },
+      { type: "halfDouble", isCompleted: false, isMarked: false, isInProgress: true, isSelected: false },
+      { type: "double", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "double", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false },
+      { type: "slip", isCompleted: false, isMarked: false, isInProgress: false, isSelected: false }
     ],
   },
   // 他の段も同様に追加可能
 ];
-
-
-

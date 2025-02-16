@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import HomeButton from "../../components/HomeButton";
 import PageTitle from "../../components/PageTitle";
 import Menu from "./components/Menu";
-import Chart from "../../components/Chart";
+// import Chart from "../../components/Chart";
 import Memo from "./components/Memo";
 import RowCounter from "./components/RowCounter";
 import ProgressBar from "../../components/ProgressBar";
 import Button from "../../components/Button";
 import Instruction from "./components/Instruction";
 import { rows } from "../../utils/convertRows";
-import { Language } from "../../data/project";
+import { Language } from "../../types/Project.types";
+import CrochetChart from "../../components/CrochetChart";
 import styles from "./Project.module.scss";
 
 const Project: React.FC = () => {
-  const [isChartVisible, setIsChartVisible] = useState(true);
+  const [isChartVisible] = useState(true);
   const [isMemoVisible, setIsMemoVisible] = useState(false);
   const language: Language = "ja";
 
@@ -32,7 +33,7 @@ const Project: React.FC = () => {
         <PageTitle>ハートのモチーフ</PageTitle>
         <Menu isChartVisible={isChartVisible} openMemo={openMemo} />
       </header>
-      {isChartVisible && <Chart />}
+      {isChartVisible && <CrochetChart />}
       <div className={styles.content}>
         <div className={styles.progress}>
           <RowCounter

@@ -1,8 +1,7 @@
 // Stitch.tsx
 import React from "react";
 import { translateStitchType } from "../../../utils/translateStitch";
-import { Language } from "../../../data/project";
-import { ConvertedStitch } from "../../../utils/convertRows";
+import { ConvertedStitch, Language } from "../../../types/Project.types";
 import classNames from "classnames";
 import styles from "./Stitch.module.scss";
 import { FaStar } from "react-icons/fa6";
@@ -28,13 +27,11 @@ const Stitch: React.FC<StitchProps> = ({ stitch, language }) => {
       <p>
         {stitch.isMarked && <FaStar />}
         {language === "ja"
-          ? `${translateStitchType(stitch.stitchType, "ja")} ${stitch.count}目`
-          : `${translateStitchType(stitch.stitchType, "en")} ×${stitch.count}`}
+          ? `${translateStitchType(stitch.type, "ja")} ${stitch.count}目`
+          : `${translateStitchType(stitch.type, "en")} ×${stitch.count}`}
       </p>
       {(stitch.isInProgress || stitch.isSelected) && stitch.isMarked && (
-        <p className={styles.comment}>
-          {stitch.comment}
-        </p>
+        <p className={styles.comment}>{stitch.comment}</p>
       )}
     </div>
   );

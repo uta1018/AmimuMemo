@@ -1,88 +1,68 @@
 // src/data/works.ts
-export interface Project {
-  id: string;
-  author: string;
-  title: string;
-  createdAt: string; // 作成日
-  updatedAt: Date;
-}
-
-interface Row {
-  stitches: Stitch[];        // この行の目（Stitch）の配列
-}
-
-export type Language = "en" | "ja";
-
-interface Stitch {
-  stitchType: "slip" | "chain" | "single" | "double" | "treble" | string;  // 目の種類
-  isCompleted: boolean;      // この目が完了しているか
-  isMarked: boolean;         // ユーザーがマークしたかどうか
-  comment?: string;             // コメント
-  markerColor?: string;      // メモの色（任意）
-  rowId: number;             // 目が所属する行のID
-}
+import { Project } from "../types/Project.types";
+import { unprocessedStitches } from "./chartData";
 
 export const dummyProjects: Project[] = [
   {
     id: "1",
     author: "uuu",
     title: "ハートのモチーフ",
-    createdAt: "2025-02-01",
-    updatedAt: new Date("2025-02-01"),
+    createdAt: new Date("2025-02-01"),
+    rows: []
     // rows: [
     //   // 1段目
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "chain",
+    //         type: "chain",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: true,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "halfDouble",
+    //         type: "halfDouble",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "halfDouble",
+    //         type: "halfDouble",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
     //       },
     //       {
-    //         stitchType: "double",
+    //         type: "double",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 1
@@ -93,50 +73,50 @@ export const dummyProjects: Project[] = [
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: true,
     //         isMarked: false,
     //         comment: "",
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
     //       },
     //       {
-    //         stitchType: "single",
+    //         type: "single",
     //         isCompleted: false,
     //         isMarked: false,
     //         rowId: 2
@@ -146,7 +126,7 @@ export const dummyProjects: Project[] = [
     //   {
     //     stitches: [
     //       {
-    //         stitchType: "slip",
+    //         type: "slip",
     //         isCompleted: true,
     //         isMarked: false,
     //         comment: "輪に引き抜き編み",
@@ -155,11 +135,15 @@ export const dummyProjects: Project[] = [
     //     ]
     //   },
     // ]
-  },{
+  },
+  {
     id: "2",
     author: "uuu",
     title: "ニット帽",
-    createdAt: "2025-02-01",
+    createdAt: new Date("2025-02-01"),
     updatedAt: new Date("2025-02-01"),
-  }
+    rows: unprocessedStitches.map((round) => {
+      return { stitches: round };
+    }),
+  },
 ];

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { ConvertedRow, convertRows, Row } from "../../../utils/convertRows";
-import { translateStitchType } from "../../../utils/translateStitch";
-import { Language } from "../../../data/project";
+
+import { convertRows } from "../../../utils/convertRows";
+import { Language, Row, ConvertedRow } from "../../../types/Project.types";
+// import { translateStitchType } from "../../../utils/translateStitch";
 import Stitch from "./Stitch";
 import styles from "./Instruction.module.scss";
 
@@ -30,9 +31,8 @@ const Instruction: React.FC<InstructionProps> = ({ rows, language }) => {
           (stitch) => stitch.isInProgress
         );
         const hasCompleted = row.stitches.some((stitch) => stitch.isCompleted);
-        const rowClassName = (hasInProgress || hasCompleted)
-          ? styles.completedRow
-          : styles.row;
+        const rowClassName =
+          hasInProgress || hasCompleted ? styles.completedRow : styles.row;
 
         return (
           <div
@@ -47,7 +47,7 @@ const Instruction: React.FC<InstructionProps> = ({ rows, language }) => {
             </p>
             <div className={styles.stitches}>
               {row.stitches.map((stitch, index) => (
-                <Stitch stitch={stitch} language={language} />
+                <Stitch key={index} stitch={stitch} language={language} />
               ))}
             </div>
           </div>
