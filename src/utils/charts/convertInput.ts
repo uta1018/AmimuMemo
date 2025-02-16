@@ -1,4 +1,4 @@
-import { StitchInChart, STITCH_TYPE_KEYS } from "../../types/Stitch.types";
+import { Stitch, STITCH_TYPE_KEYS } from "../../types/Stitch.types";
 
 
 /*
@@ -51,10 +51,10 @@ export const parseStitchInput = (input: string) => {
                 type,
                 index: index++,
                 ...(relativeTo !== undefined ? { relativeTo } : {}),
-              } as StitchInChart)
+              } as Stitch)
           );
         })
         .flat()
-        .filter((item): item is StitchInChart => !!item);
+        .filter((item): item is Stitch => !!item);
     });
 };
